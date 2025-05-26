@@ -80,6 +80,24 @@ npm run dev
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
+- `npm run deploy` - Deploy to GitHub Pages
+
+## Deployment
+
+This project is configured for easy deployment to GitHub Pages:
+
+### GitHub Pages (Automatic)
+1. Push code to GitHub repository
+2. GitHub Actions will automatically build and deploy
+3. Site will be available at: `https://yourusername.github.io/palette-designer/`
+
+### Manual Deployment
+```bash
+npm run deploy
+```
+
+### Live Demo
+🔗 **[View Live Demo](https://yourusername.github.io/palette-designer/)**
 
 ## Usage
 
