@@ -2,6 +2,8 @@
 
 A modern, intuitive web application that helps developers generate beautiful color palettes from a single input color. Transform any color into professional-grade palettes with export capabilities for immediate use in web development projects.
 
+🚀 **[Live Demo](https://mkjsanghvi29.github.io/palette-designer/)**
+
 ## Features
 
 🎨 **Core Palette Generation**
