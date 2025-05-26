@@ -14,7 +14,7 @@ interface PaletteStore {
   // Actions
   setCurrentColor: (color: Color) => void;
   generatePalettes: (color: Color) => void;
-  selectPalette: (palette: Palette) => void;
+  selectPalette: (palette: Palette | null) => void;
   toggleFavorite: (paletteId: string) => void;
   generateRandomPalettes: () => void;
   clearPalettes: () => void;
@@ -48,14 +48,26 @@ export const usePaletteStore = create<PaletteStore>()(
 
       generatePalettes: (color: Color) => {
         const paletteTypes: PaletteType[] = [
+          // Core algorithms
           'monochromatic',
           'analogous',
           'complementary',
           'triadic',
-          'split-complementary',
-          'tetradic',
           'material-design',
           'accessibility-focused',
+          
+          // Emotional palettes for variety
+          'emotional-energetic',
+          'emotional-calm',
+          'emotional-professional',
+          
+          // Seasonal palettes
+          'seasonal-spring',
+          'seasonal-autumn',
+          
+          // Brand and gradient
+          'brand-tech',
+          'gradient',
         ];
 
         const newPalettes = paletteTypes.map(type => generatePalette(color, type));
@@ -69,7 +81,7 @@ export const usePaletteStore = create<PaletteStore>()(
         }));
       },
 
-      selectPalette: (palette: Palette) => {
+      selectPalette: (palette: Palette | null) => {
         set({ selectedPalette: palette });
       },
 

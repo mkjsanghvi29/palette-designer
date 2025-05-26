@@ -30,7 +30,24 @@ export type PaletteType =
   | 'split-complementary'
   | 'tetradic'
   | 'material-design'
-  | 'accessibility-focused';
+  | 'accessibility-focused'
+  | 'emotional-energetic'
+  | 'emotional-calm'
+  | 'emotional-warm'
+  | 'emotional-cool'
+  | 'emotional-professional'
+  | 'emotional-creative'
+  | 'brand-tech'
+  | 'brand-finance'
+  | 'brand-healthcare'
+  | 'brand-education'
+  | 'brand-food'
+  | 'brand-fashion'
+  | 'seasonal-spring'
+  | 'seasonal-summer'
+  | 'seasonal-autumn'
+  | 'seasonal-winter'
+  | 'gradient';
 
 export type ExportFormat = 
   | 'css-variables'

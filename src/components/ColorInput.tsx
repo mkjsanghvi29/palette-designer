@@ -60,47 +60,47 @@ export const ColorInput: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 space-y-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 lg:p-6 space-y-4 lg:space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Color Input</h2>
         <button
           onClick={generateRandomPalettes}
-          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
         >
           <Shuffle size={16} />
-          Surprise Me
+          <span className="hidden sm:inline">Surprise Me</span>
         </button>
       </div>
 
       {/* Mode Selection */}
-      <div className="flex space-x-1 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-1 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
         {inputModeButtons.map(({ mode, icon: Icon, label }) => (
           <button
             key={mode}
             onClick={() => setInputMode(mode)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`flex items-center justify-center gap-1 lg:gap-2 px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium transition-colors ${
               inputMode === mode
                 ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
                 : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
             }`}
           >
-            <Icon size={16} />
-            {label}
+            <Icon size={14} className="lg:w-4 lg:h-4" />
+            <span className="hidden sm:inline">{label}</span>
           </button>
         ))}
       </div>
 
       {/* Color Preview */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 lg:gap-4">
         <div
-          className="w-16 h-16 rounded-lg shadow-sm border-2 border-gray-200 dark:border-gray-600 cursor-pointer transition-transform hover:scale-105"
+          className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl shadow-sm border-2 border-gray-200 dark:border-gray-600 cursor-pointer transition-transform hover:scale-105 flex-shrink-0"
           style={{ backgroundColor: currentColor.hex }}
           onClick={() => inputMode === 'picker' && setShowPicker(!showPicker)}
         />
-        <div className="text-sm text-gray-600 dark:text-gray-400">
-          <div className="font-medium">{currentColor.hex.toUpperCase()}</div>
-          <div>RGB({currentColor.rgb.r}, {currentColor.rgb.g}, {currentColor.rgb.b})</div>
-          <div>HSL({Math.round(currentColor.hsl.h)}°, {Math.round(currentColor.hsl.s)}%, {Math.round(currentColor.hsl.l)}%)</div>
+        <div className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 min-w-0 flex-1">
+          <div className="font-medium font-mono text-gray-900 dark:text-white">{currentColor.hex.toUpperCase()}</div>
+          <div className="font-mono">RGB({currentColor.rgb.r}, {currentColor.rgb.g}, {currentColor.rgb.b})</div>
+          <div className="font-mono">HSL({Math.round(currentColor.hsl.h)}°, {Math.round(currentColor.hsl.s)}%, {Math.round(currentColor.hsl.l)}%)</div>
         </div>
       </div>
 
