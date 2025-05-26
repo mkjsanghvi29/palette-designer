@@ -8,6 +8,8 @@ on:
 
 jobs:
   build-and-deploy:
+    permissions:
+      contents: write # Allow write access to repository contents
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
 
